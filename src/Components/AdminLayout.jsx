@@ -58,7 +58,7 @@ const AdminLayout = () => {
             </li>
             <li>
               <Link
-                to="/login"
+                to="/"
                 className="block p-2 rounded"
                 onClick={() => setSelectedOption("logout")}
               >
