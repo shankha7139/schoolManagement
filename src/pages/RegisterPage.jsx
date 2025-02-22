@@ -80,7 +80,7 @@ const Register = () => {
           </button>
           <div
             className="flex items-center cursor-pointer align-middle justify-center text-blue-600 "
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/")}
           >
             Login?
           </div>
