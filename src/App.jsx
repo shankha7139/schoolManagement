@@ -40,14 +40,6 @@ function App() {
             <Route path="teachers" element={<Teachers />} />
             <Route path="my-info" element={<MyInfo />} />
           </Route>
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <HomePage />
-              </ProtectedRoute>
-            }
-          />
         </Routes>
       </Router>
     </AuthProvider>
