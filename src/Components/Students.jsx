@@ -59,12 +59,12 @@ const Students = () => {
       class: studentClass,
       rollNumber,
       section,
-      id: generateUniqueId(name, fatherName, motherName, dob),
+      customId: generateUniqueId(name, fatherName, motherName, dob), // Store custom ID separately
     };
 
     try {
-      await addDoc(collection(db, "students"), studentData);
-      setStudents([...students, studentData]);
+      const docRef = await addDoc(collection(db, "students"), studentData);
+      setStudents([...students, { ...studentData, id: docRef.id }]);
       resetForm();
     } catch (error) {
       console.error("Error adding student:", error);
@@ -103,6 +103,7 @@ const Students = () => {
       class: studentClass,
       rollNumber,
       section,
+      customId: generateUniqueId(name, fatherName, motherName, dob), // Update custom ID
     };
 
     try {
@@ -323,7 +324,7 @@ const Students = () => {
             <tbody>
               {students.map((student) => (
                 <tr key={student.id} className="border-b hover:bg-gray-50">
-                  <td className="py-3 px-4">{student.id}</td>
+                  <td className="py-3 px-4">{student.customId}</td>
                   <td className="py-3 px-4">{student.name}</td>
                   <td className="py-3 px-4">{student.email}</td>
                   <td className="py-3 px-4">{student.age}</td>
